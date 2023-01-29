@@ -1,0 +1,63 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* Arvo
+    Baloo+2
+    Righteous */
+  font-family: "Arvo", monospace;
+  font-size: 20px;
+}
+
+#santiago-canvas {
+  position: absolute;
+  background-color: rgb(238, 238, 238);
+  top: 0;
+  left: 0;
+}
+
+#name,
+#title {
+  position: absolute;
+  z-index: 100;
+  white-space: nowrap;
+  font-size: 2rem;
+}
+
+#name {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#title {
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  line-height: 1rem;
+  display: flex;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+#cursor {
+  display: inline-block;
+  height: 1rem;
+  width: 2px;
+  margin-left: 1px;
+  background-color: black;
+  animation: blink-animation 0.8s steps(5, start) infinite;
+  -webkit-animation: blink-animation 0.8s steps(5, start) infinite;
+}
