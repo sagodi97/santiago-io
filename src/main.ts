@@ -20,12 +20,22 @@ const canvas = document.querySelector("#santiago-canvas") as HTMLCanvasElement;
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-const gradiant = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+let gradiant = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
 gradiant.addColorStop(0.5, "yellow");
 gradiant.addColorStop(0.7, "blue");
 gradiant.addColorStop(0.9, "red");
 ctx.strokeStyle = gradiant;
 ctx.lineWidth = 1;
+
+window.addEventListener("resize", () => {
+  canvas.width = innerWidth;
+  canvas.height = innerHeight;
+  gradiant = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+  gradiant.addColorStop(0.5, "yellow");
+  gradiant.addColorStop(0.7, "blue");
+  gradiant.addColorStop(0.9, "red");
+  ctx.strokeStyle = gradiant;
+});
 
 const pointerStore = {
   x: 0,
@@ -62,11 +72,6 @@ function animate(timestamp: number) {
 }
 
 animate(0);
-
-window.addEventListener("resize", () => {
-  canvas.width = innerWidth;
-  canvas.height = innerHeight;
-});
 
 window.addEventListener("mousemove", ({ x, y }) => {
   pointerStore.x = x;
