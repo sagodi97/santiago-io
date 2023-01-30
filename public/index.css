@@ -4,10 +4,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* Arvo
-    Baloo+2
-    Righteous */
-  font-family: "Arvo", monospace;
+  font-family: "Baloo 2", monospace;
   font-size: 20px;
 }
 
