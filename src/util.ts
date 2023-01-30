@@ -1,16 +1,13 @@
-export function typeText(text: string, el: HTMLElement) {
-  let a = "";
+export function typeText(text: string, el: HTMLElement, speed = 200) {
+  el.childNodes[0].textContent = "";
   let i = 0;
 
-  setInterval(() => {
+  (function type() {
+    console.log("siema");
     if (i < text.length) {
-      a += text[i];
-      el.childNodes[0].textContent = a;
+      el.childNodes[0].textContent += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
     }
-    i++;
-    if (i >= text.length + 10) {
-      a = "";
-      i = 0;
-    }
-  }, 200);
+  })();
 }
